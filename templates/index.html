@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasure Hunt | ADS</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="center-page">
+  <main class="panel landing">
+    <p class="kicker">Department of AI &amp; Data Science</p>
+    <h1>Treasure<br><span>Hunt</span></h1>
+    <p class="lead">A seven-level campus challenge for curious minds.</p>
+    {% with messages = get_flashed_messages() %}{% for message in messages %}<p class="notice">{{ message }}</p>{% endfor %}{% endwith %}
+    <section class="login-card">
+      <div class="section-heading"><span class="step">01</span><div><h2>Student Login</h2><p>Enter the credentials provided to your team.</p></div></div>
+      <form action="{{ url_for('start_hunt') }}" method="post">
+        <label for="team_name">Team name<input id="team_name" name="team_name" maxlength="80" required autocomplete="username"></label>
+        <label for="team_password">Team password<input id="team_password" name="team_password" type="password" required autocomplete="current-password"></label>
+        <button class="button primary" type="submit">Start treasure hunt <span>-></span></button>
+      </form>
+    </section>
+    <a class="admin-button" href="{{ url_for('admin_login') }}"><span>Coordinator access</span><b>Admin login -></b></a>
+    <section class="instructions"><div class="section-heading"><span class="step">02</span><div><h2>Instructions</h2><p>Keep these in mind throughout the hunt.</p></div></div>
+      <ol><li>Scan the correct QR code for each level to proceed.</li><li>Wrong QR codes show <strong>"Incorrect QR Code! Please try again."</strong></li><li>Three tab switches or page exits will eliminate your team.</li><li>Do not refresh, close, or leave the competition page unnecessarily.</li><li>For technical help, contact the coordinators.</li><li>Coordinator contact: <strong>959509923</strong></li><li>For login help, contact the coordinator.</li></ol>
+    </section>
+    <footer>ADS COLLEGE FEST <span>2026</span></footer>
+  </main>
+</body>
+</html>
