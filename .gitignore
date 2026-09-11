@@ -1,0 +1,5 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+treasure_hunt_qr_codes.pdf
